@@ -12,7 +12,7 @@ AnomalyDiffusion 是一个**条件扩散模型**，其核心流程如下：
    - 引入 **空间异常嵌入（SAE）**：将掩码编码为位置感知的条件信号；
    - 采用 **掩码扩散损失（Masked Diffusion Loss）**：仅在异常区域计算重建损失；
    - 设计 **自适应注意力重加权机制（AAR）**：利用交叉注意力图与掩码对齐，增强空间一致性。
-4. **输出**：合成异常图像   I_{\text{anom}} = I_{\text{norm}} + \text{realistic anomaly at } M。
+4. **输出**：合成异常图像   $I_{\text{anom}} = I_{\text{norm}} + \text{realistic anomaly at } M$。
 
 > **图示参考**：论文图1（Bottom）展示了 AnomalyDiffusion 在 hazelnut-crack 和 capsule-squeeze 类别上生成的异常图像，明显比 Crop&Paste 和 DRAEM 更真实、边界更自然。
 
