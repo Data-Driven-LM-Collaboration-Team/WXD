@@ -103,9 +103,9 @@ MVTec数据集是第一个全面的、多目标、多缺陷并且提供像素级
   
  模型的缺陷是在不恰当处生成变化，要更改模型结构或者loss来解决。
 
-### 生成模型评估指标： IS,FID，clip-score,pick-score
+### 生成模型评估指标： IS, FID, clip-score, pick-score, HPS
 通用图像生成（无文本）：可用 FID（主）+ IS（辅）
-文生图（Text-to-Image）：可用 CLIP Score + PickScore（评估对齐与质量），FID（评估整体分布）
+文生图（Text-to-Image）：可用 clip-score + pick-score（评估对齐与质量），FID（评估整体分布）
 
 
 
