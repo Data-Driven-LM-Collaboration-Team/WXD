@@ -97,12 +97,10 @@ MVTec数据集是第一个全面的、多目标、多缺陷并且提供像素级
 
 实验结果： 论文在多个高分辨率图像数据集（如 ImageNet、FFHQ）上验证了所提方法的有效性。实验表明，该方法能够生成细节丰富、结构合理的 256×256 甚至更高分辨率图像，在 FID（Fréchet Inception Distance）和 IS（Inception Score）等指标上优于或媲美当时的 SOTA GAN 模型（如 StyleGAN2），同时展现出更强的多样性与语义可控性。此外，消融实验验证了 Transformer 在建模长程依赖方面的优势。
 
-<figure>
-  <img src="https://github.com/user-attachments/assets/ccafb38d-974e-4756-8428-f2496c63774d" alt="示例图片" width="400">
- <img width="800"  alt="异常点" src="https://github.com/user-attachments/assets/f6f614dc-08db-4da4-86d9-d18243f7362d" />
-  <figcaption>图1：这是一张示例图片的标题</figcaption>
- <figcaption>图2：这是一张示例图片的标题</figcaption>
-</figure>
+ <img width="800"  alt="异常点" src="https://github.com/user-attachments/assets/4a17eb38-d530-4934-802f-5db3c20e7600" />
+*图1：这是一张示例图片的标题*
+![生成模型异常处](https://github.com/user-attachments/assets/4a17eb38-d530-4934-802f-5db3c20e7600)
+*图1：这是一张示例图片的标题*
 
 
 
