@@ -99,9 +99,11 @@ MVTec数据集是第一个全面的、多目标、多缺陷并且提供像素级
 
 <figure>
   <img src="https://github.com/user-attachments/assets/ccafb38d-974e-4756-8428-f2496c63774d" alt="示例图片" width="400">
+ <img width="800"  alt="异常点" src="https://github.com/user-attachments/assets/f6f614dc-08db-4da4-86d9-d18243f7362d" />
   <figcaption>图1：这是一张示例图片的标题</figcaption>
+ <figcaption>图2：这是一张示例图片的标题</figcaption>
 </figure>
-<img width="1514" height="769" alt="异常点" src="https://github.com/user-attachments/assets/f6f614dc-08db-4da4-86d9-d18243f7362d" />
+
 
 
 
