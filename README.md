@@ -115,7 +115,7 @@ MVTec数据集是第一个全面的、多目标、多缺陷并且提供像素级
 prompt:
 图1是真实有瑕疵的布料图片，图2白色为图1布料瑕疵的位置，图3是完好布料图片，图4是位置遮罩。注意瑕疵是指图1在图2白色位置处的地方。现在请生成一张图片，图3在图4白色位置处生成瑕疵，要求风格类似图1的瑕疵。
 
-<img width="1024" height="1024" alt="Gemini_Generated_Image_ech7srech7srech7" src="https://github.com/user-attachments/assets/e3a518e3-b648-4e93-a0ec-ddc5124ba6d3" />
+<img width="209" height="209" alt="image" src="https://github.com/user-attachments/assets/2600df51-6a9e-4375-9e58-8100088429fa" />
 
 图1是真实的有瑕疵的布料图片，图2白色区域为图1布料瑕疵的位置，图3是完好布料图片，图4是位置遮罩。注意"瑕疵"是指图1在图2白色位置处的布料褶皱。现在请修改图3，让图3在图4白色位置处生成"瑕疵"，要求风格与图1的"瑕疵"风格一致。要求符合实际，符合物理规律。
 
