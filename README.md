@@ -127,6 +127,27 @@ prompt:
 
 ### 两阶段潜空间去噪预览：
 
-<img width="1333" height="1332" alt="image" src="https://github.com/user-attachments/assets/b65e19a6-1a62-474d-b8fc-ef394a765803" />
+#### prompt: minor flaw in bottle，obvious crack
+##### 潜空间加噪强度：0.3
+
+<img width="1988" height="1054" alt="image" src="https://github.com/user-attachments/assets/b0230426-3861-421f-b9b2-017d427c8f2a" />
+
+##### 潜空间加噪强度：0.15
+
+<img width="1992" height="1059" alt="image" src="https://github.com/user-attachments/assets/20ac58ad-ffce-4a7e-96f9-e7ae68ebcfc4" />
+
+##### 潜空间加噪强度：0.05
+
+<img width="1996" height="1054" alt="image" src="https://github.com/user-attachments/assets/655a8242-0a14-4140-a5aa-6931b7ce50b8" />
+
+#### prompt: Astronaut in a jungle, cold color palette, muted colors, detailed, 8k
+##### 潜空间加噪强度：0.15
+
+<img width="1998" height="714" alt="image" src="https://github.com/user-attachments/assets/4593349e-74ac-46e5-a315-d349298205fe" />
+
+##### 潜空间加噪强度：0.05
+
+<img width="2001" height="719" alt="image" src="https://github.com/user-attachments/assets/3c7a1700-0ab7-4acb-bb04-3e147f220f3c" />
+
 
 
