@@ -125,7 +125,7 @@ prompt:
 
 <img width="685" height="229" alt="image" src="https://github.com/user-attachments/assets/f22a7d3a-41f2-4131-9076-bd5843f79f4d" />
 
-
+两阶段潜空间去噪预览：
 <img width="1333" height="1332" alt="image" src="https://github.com/user-attachments/assets/b65e19a6-1a62-474d-b8fc-ef394a765803" />
 
 
