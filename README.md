@@ -149,6 +149,8 @@ prompt:
 
 <img width="2001" height="719" alt="image" src="https://github.com/user-attachments/assets/3c7a1700-0ab7-4acb-bb04-3e147f220f3c" />
 
+### 两阶段潜空间去噪架构：
+
 <img width="1704" height="964" alt="image" src="https://github.com/user-attachments/assets/20c84990-d077-4a83-8e52-d5d9043d6a25" />
 
 
