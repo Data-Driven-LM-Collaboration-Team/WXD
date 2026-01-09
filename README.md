@@ -151,6 +151,7 @@ prompt:
 
 ### 两阶段潜空间去噪架构：
 
-<img width="1704" height="964" alt="image" src="https://github.com/user-attachments/assets/20c84990-d077-4a83-8e52-d5d9043d6a25" />
+<img width="1571" height="892" alt="image" src="https://github.com/user-attachments/assets/d20ed7cf-b78d-475f-b0d7-6007268a0b74" />
+
 
 
