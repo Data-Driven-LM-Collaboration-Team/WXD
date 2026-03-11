@@ -157,7 +157,7 @@ prompt:
 固定高低频ratio时：低频部分收敛，高频部分发散。
 <img width="1175" height="860" alt="image" src="https://github.com/user-attachments/assets/2334a036-48f0-4944-980e-e74e29656773" />
 <img width="1180" height="819" alt="image" src="https://github.com/user-attachments/assets/e4b6b72c-0f1d-43cb-b0b4-0bdc20f33931" />
-<img width="1163" height="823" alt="image" src="https://github.com/user-attachments/assets/ebc33984-49f8-43be-a454-cf0f3cc87907" />
+
 sigma_max20k后显著增大。
 ```
 训练时：
@@ -169,3 +169,6 @@ sigma_max20k后显著增大。
               pred_high = IFFT(FFT(denoised_refiner) · W_high)
   → loss = w(σ) · ||pred_low - gt_low||² + λ · w(σ) · ||pred_high - gt_high||²
 ```
+<img width="1166" height="584" alt="image" src="https://github.com/user-attachments/assets/b56f33ac-eabc-45ac-b184-4f7b26a9ba44" />
+<img width="518" height="260" alt="image" src="https://github.com/user-attachments/assets/1f25da01-0a58-4870-b9c6-ae41f98952c1" />
+
