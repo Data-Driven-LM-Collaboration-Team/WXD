@@ -158,3 +158,10 @@ prompt:
 <img width="1175" height="860" alt="image" src="https://github.com/user-attachments/assets/2334a036-48f0-4944-980e-e74e29656773" />
 <img width="1180" height="819" alt="image" src="https://github.com/user-attachments/assets/e4b6b72c-0f1d-43cb-b0b4-0bdc20f33931" />
 
+  sigma_t 已知（采样得到）
+  → spectral_gate(H, W, sigma_t) → W_low, W_high
+  → GT分解:  gt_low  = IFFT(FFT(z_0) · W_low)
+              gt_high = IFFT(FFT(z_0) · W_high)
+  → 输出滤波: pred_low  = IFFT(FFT(denoised_base) · W_low)
+              pred_high = IFFT(FFT(denoised_refiner) · W_high)
+  → loss = w(σ) · ||pred_low - gt_low||² + λ · w(σ) · ||pred_high - gt_high||²
