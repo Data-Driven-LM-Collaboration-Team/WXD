@@ -152,6 +152,9 @@ prompt:
 ### 两阶段潜空间去噪架构：
 
 <img width="1571" height="892" alt="image" src="https://github.com/user-attachments/assets/d20ed7cf-b78d-475f-b0d7-6007268a0b74" />
-
-
+### 两阶段潜空间去噪架构(base+base)：
+<img width="1195" height="631" alt="image" src="https://github.com/user-attachments/assets/63006e1e-f1b4-4b4f-9553-cf2abd9521dc" />
+固定高低频ratio时：低频部分收敛，高频部分发散。
+<img width="1175" height="860" alt="image" src="https://github.com/user-attachments/assets/2334a036-48f0-4944-980e-e74e29656773" />
+<img width="1180" height="819" alt="image" src="https://github.com/user-attachments/assets/e4b6b72c-0f1d-43cb-b0b4-0bdc20f33931" />
 
