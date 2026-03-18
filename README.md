@@ -172,3 +172,34 @@ sigma_max20k后显著增大。
 <img width="1166" height="584" alt="image" src="https://github.com/user-attachments/assets/b56f33ac-eabc-45ac-b184-4f7b26a9ba44" />
 <img width="518" height="260" alt="image" src="https://github.com/user-attachments/assets/1f25da01-0a58-4870-b9c6-ae41f98952c1" />
 
+
+数据集zju leaper 异常种类中的fabric_pattern17到19，与anomalydiffusion做对比 主实验
+
+| 指标               | FID↓ | IS↑  | LPIPS↓ | SSIM↑ | AUROC-I↑ | AUROC-P↑ |
+| ------------------ | ---- | ---- | ------ | ----- | -------- | -------- |
+| anomalydiffusion   | -    | -    | -      | -     | -        | -        |
+| FreqAD（完整模型） | -    | -    | -      | -     | -        | -        |
+
+- **FID**（Fréchet Inception Distance）：衡量生成图像与真实图像分布的距离，越低越好；
+- **IS**（Inception Score）：衡量生成图像的多样性和清晰度，越高越好；
+- **LPIPS**（Learned Perceptual Image Patch Similarity）：衡量感知层面的差异，越低表示越逼真；
+- **SSIM**（Structural Similarity）：衡量结构相似性，越高表示保留原图结构越好。
+
+| 指标                 | FID↓ | IS↑  | LPIPS↓ | SSIM↑ |
+| -------------------- | ---- | ---- | ------ | ----- |
+| FreqAD（完整模型）   | -    | -    | -      | -     |
+| 移除 NCSG            | -    | -    | -      | -     |
+| 移除 FAAM            | -    | -    | -      | -     |
+| 移除第二个文本编码器 | -    | -    | -      | -     |
+
+
+
+MVTec AD 上的下游异常检测性能。各方法生成的数据用于训练检测模型。最佳结果**加粗**，次佳结果下划线。
+
+| 方法                  | 图像级 AUROC-I↑ | 图像级 AP-I↑ | 图像级 F1max-I↑ | 像素级 AUROC-P↑ | 像素级 AP-P↑ | 像素级 F1max-P↑ | PRO↑ |
+| --------------------- | --------------- | ------------ | --------------- | --------------- | ------------ | --------------- | ---- |
+| 无数据增强（No Aug.） | -               | -            | -               | -               | -            | -               | -    |
+| SDGAN                 | -               | -            | -               | -               | -            | -               | -    |
+| ...                   | ...             | ...          | ...             | ...             | ...          | ...             | ...  |
+| FreqAD（本文方法）    | -               | -            | -               | -               | -            | -               | -    |
+
