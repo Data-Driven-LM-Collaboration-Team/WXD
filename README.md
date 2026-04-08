@@ -210,7 +210,7 @@ ZJU Leaper Custom
 
 | Category | AnomalyDiffusion | Ours（AnomalyDiffusion+CSMFS） |
 | -------- | ---------------- | ------------------------------ |
-| fabric   | 43.75%           | 64.58%                         |
+| fabric   | 43.75%           | 60.42%                         |
 
 MVTec AD
 
