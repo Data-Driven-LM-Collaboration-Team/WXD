@@ -228,3 +228,22 @@ MVTec AD
 <img width="1046" height="520" alt="image" src="https://github.com/user-attachments/assets/60cbee53-1361-43c7-bc68-5dc19029ce3b" />
 
 
+```
+trainer.fit(model, data)
+  └─ training_step(batch, batch_idx)                 [ddpm.py, PL hook]
+       ├─ shared_step(batch)
+       │     → get_input(batch, 'image')             [ddpm.py:803]
+       │         ├─ encode_first_stage(img)           → z = VAE(img) * scale_factor
+       │         ├─ mask = batch['mask']              → 二值异常区域
+       │         ├─ c_text = batch['caption']         → 文本条件
+       │         └─ mask_cond = img                   → PSP 编码器输入
+       │     → return z, c_text, mask, mask_cond, name
+       │
+       │     → forward(z, c_text, mask=mask, mask_cond=mask_cond, name=name)
+       │           ├─ t = randint(0, T, [B])          → 随机时间步
+       │           ├─ (CSMFS) get_dual_conditioning() → c_dual [B, 154, 1280]
+       │           │  或 (基线) get_learned_conditioning() → c [B, 77, 1280]
+       │           └─ p_losses(z, c, t, mask=mask)    → loss, loss_dict
+       │
+       └─ return loss  → PL 自动 backward + optimizer.step
+```
