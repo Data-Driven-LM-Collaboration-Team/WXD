@@ -217,11 +217,13 @@ MVTec AD
 | Category | AnomalyDiffusion | Ours（SDXL+CSMFS） |
 | -------- | ---------------- | ------------------ |
 | Zipper   | 69.53%           | 64%左右            |
-|          |                  |                    |
+|    ... ()     |                  |                    |
 
 1. 异常可出现在任意位置 → 空间增强 (翻转、旋转) 有效
 2. 异常形态与方向无关 → 几何变换保持语义
 3. 工业相机光照可变 → ColorJitter 增加鲁棒性
 4. 异常区域可能很小 → RandomErasing 模拟遮挡
+
+<img width="1046" height="520" alt="image" src="https://github.com/user-attachments/assets/60cbee53-1361-43c7-bc68-5dc19029ce3b" />
 
 
