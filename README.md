@@ -251,5 +251,9 @@ trainer.fit(model, data)
 <img width="1034" height="260" alt="18bcfaa9ee0e069fcaf5095dfcc76d09" src="https://github.com/user-attachments/assets/37bfa25c-2c8a-4ba5-9420-9a64807d7aca" />
 <img width="138" height="36" alt="17eb44f1a541e2cdf632eeacde0c141b" src="https://github.com/user-attachments/assets/88bcd69f-6c63-4a6c-87b1-e060ea1dd9f8" />
 3x3
-<img width="1034" height="260" alt="image" src="https://github.com/user-attachments/assets/ac912e12-262b-4b4f-a40b-2a2c79a8d9b6" />
+<img width="1034" height="260" alt="image" src="https://github.com/user-attachments/assets/fd1a6f04-cbef-4dfb-b12e-cc2a20525618" />
+3x3 + tiled diffusion 推理 pattern 17
+<img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/1ee8b919-bcb2-41b6-a00e-5368b2776c0f" />
+<img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/48c5aacb-9601-467a-b50d-fd76c7731803" />
+
 
