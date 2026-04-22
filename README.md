@@ -247,3 +247,9 @@ trainer.fit(model, data)
        │
        └─ return loss  → PL 自动 backward + optimizer.step
 ```
+2x2合并，无重叠
+<img width="1034" height="260" alt="18bcfaa9ee0e069fcaf5095dfcc76d09" src="https://github.com/user-attachments/assets/37bfa25c-2c8a-4ba5-9420-9a64807d7aca" />
+<img width="138" height="36" alt="17eb44f1a541e2cdf632eeacde0c141b" src="https://github.com/user-attachments/assets/88bcd69f-6c63-4a6c-87b1-e060ea1dd9f8" />
+3x3
+<img width="1034" height="260" alt="image" src="https://github.com/user-attachments/assets/ac912e12-262b-4b4f-a40b-2a2c79a8d9b6" />
+
