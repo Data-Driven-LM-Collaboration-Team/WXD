@@ -256,4 +256,14 @@ trainer.fit(model, data)
 <img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/1ee8b919-bcb2-41b6-a00e-5368b2776c0f" />
 <img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/48c5aacb-9601-467a-b50d-fd76c7731803" />
 
+3x3 分块 重叠50% 使用tile diffusion推理 pattern16 -> 大瑕疵纹理高频互相抵消 导致纯色低频 (cfg=5)
+<img width="1034" height="260" alt="2119cf41ce6c8c94a74f5b8e6ff9c713" src="https://github.com/user-attachments/assets/f090ec32-6c87-44d6-ae17-d48f5fe7bb6d" />
+
+推理时  将每一层basicTransformer的自注意力reshape 实现跨tile 共享注意力. 交叉注意力层不作reshape ，即每个块的空间文本向量仍然互不关联(cfg=9)
+<img width="1034" height="260" alt="035a5051eae8caa047b65e738eff4efa" src="https://github.com/user-attachments/assets/9dcb6cd6-76d4-4a60-95c5-048457179a84" />
+[B*N,H*W,C]->[B,N*H*W,C]
+值得进一步研究的是如何共享交叉注意力，训练时候开启共享自注意力会不会有效果。
+
+
+
 
