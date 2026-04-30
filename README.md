@@ -266,7 +266,8 @@ trainer.fit(model, data)
 
 
 开启交叉注意力共享后，训练后的可视化效果目前很差: 
-/media/cc/U2本地磁盘/pycharm_project/anomal_diffusion/anomalydiffusion/logs/anomaly-checkpoints/zju_small_perclass_pattern16_phaseT/images/val/011549_e-000032_b-000000-samples_inpainting_gs.jpg
+<img width="1034" height="260" alt="Image_2026-04-30_13-12-06_yjzgry4i rye" src="https://github.com/user-attachments/assets/d03709b5-6805-4e45-9b35-52bfdbd07bda" />
+
 可能的原因是，训练的时候因为共享了注意力导致模型学到的内容变得丰富，cfg需要适当调小才行。
 
 
