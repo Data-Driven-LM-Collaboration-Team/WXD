@@ -274,7 +274,7 @@ trainer.fit(model, data)
 <img width="1034" height="260" alt="Image_2026-04-30_13-12-06_yjzgry4i rye" src="https://github.com/user-attachments/assets/d03709b5-6805-4e45-9b35-52bfdbd07bda" />
 
 可能的原因是，训练的时候因为共享了注意力导致模型学到的内容变得丰富，cfg需要适当调小才行。
-<img width="1034" height="260" alt="Image_2026-05-08_09-54-53_wsgvnucx j1q" src="https://github.com/user-attachments/assets/6deb8620-5d28-4a21-b218-c07de00eb500" />
+<img width="1034" height="260" alt="b3d92e0f4c34b1d788eb018b0ba1a320" src="https://github.com/user-attachments/assets/6eea02ba-8ae8-4c3f-a1a2-04fa25ed5260" />
 <img width="256" height="256" alt="e4414d7fb50dcf50ee0ed53ae5eef5a4" src="https://github.com/user-attachments/assets/f053a301-559d-45d8-989c-0f7256314c21" />
 <img width="1034" height="260" alt="cc5d69e65e51bb18016af93be04730d3" src="https://github.com/user-attachments/assets/759980e2-d4bf-4485-af4f-5621d3783483" />
 
