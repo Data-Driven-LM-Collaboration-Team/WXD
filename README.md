@@ -278,4 +278,13 @@ trainer.fit(model, data)
 <img width="256" height="256" alt="e4414d7fb50dcf50ee0ed53ae5eef5a4" src="https://github.com/user-attachments/assets/f053a301-559d-45d8-989c-0f7256314c21" />
 <img width="1034" height="260" alt="cc5d69e65e51bb18016af93be04730d3" src="https://github.com/user-attachments/assets/759980e2-d4bf-4485-af4f-5621d3783483" />
 
+待解决难题：tile间方差巨大，不同tile学习效果悬殊
+使用 max为 N 个token 向量学习，软gate机制自动调整token数量
+<img width="784" height="784" alt="1240bd9f5aa315438f9cfabdbf691253" src="https://github.com/user-attachments/assets/0baf1ef7-4b3d-4d36-b9f2-ffd296786196" />
+<img width="784" height="784" alt="6691a3cc1394b484caf422a8dfb82652" src="https://github.com/user-attachments/assets/92e0e677-8eac-4cc5-a4db-615ed6947cec" />
+
+
+
+
+
 
