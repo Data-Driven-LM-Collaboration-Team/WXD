@@ -294,7 +294,7 @@ trainer.fit(model, data)
 | 2 | v7_stageA_256 ★ | 256 | ostu mask | 40k | 66.67% |  
 | 3 | v7_stageA_512 | 512 | plain | ≥120k | 58.33% |  
 | 4 | v7_stageA_512_svdpos | 512 | SVDiff+PosToken | 40k | 37.50% |  
-| 5 | v7_stageA_512_svdpos_lpips_v2 | 512 | +Huber+LPIPS-v2 | 80k | 45.83% |  
+| 5 | v7_stageA_512_svdpos_lpips_v2 | 512 | Huber+LPIPS-v2 | 80k | 45.83% |  
 
 
 
