@@ -286,22 +286,19 @@ trainer.fit(model, data)
 
 
 zju leaper small 数据集
-
+#### 未标注的cfg默认为5,每个异常子类默认训练10k步
 | 排名 | 方法 |  Acc |
 |:-:|---|:-:|
 | **1** | **v13_stageB_cfgA3.0_B1.0**(**+stagaB 各种token**) | **81.25%** ★ |
 | 2 | **v11_anomaly_purify**(**+bg token,sub bg token**) | **72.92%** |
 | 3 | v13_append_token | 70.83% |
-| 4 | v7_stageA_256(**+tbf mask+sub class token**) | 68.75% |
-| 5 | **v11_anomaly_purify_stageB** | **66.67%** |
-| 6 | v7_stageA_256_cfg2 | 62.50% |
-| 7 | v10_cfg (A=2,B=1) | 60.42% |
-| 8 | v10 (A=1,B=1) | 58.33% |
-| 9 | cta_lite_adapter | 52.08% |
-| 10 | v7_stageA_512_lpips_v2 | 45.83% |
-| 11 | v7_stageA_512 plain | 43.75% |
-| 12 | v7_stageA_512_svdpos | 41.67% |
-| 13 | **v11_anomaly_purify_512** | **37.50%** |
+| 4 | **v7_stageA_256**(**+tbf mask+sub class token**) | **68.75%** |
+| 5 | v7_stageA_256_cfg2 | 62.50% |
+| 6 | cta_lite_adapter（分块降噪并合并） | 52.08% |
+| 7 | baseline_512_lpips_v2(+tbf mask) | 45.83% |
+| 8 | baseline_512 plain | 43.75% |
+| 9 | anomaly diffusion baseline | 43.75% |
+| 10 | **v11_anomaly_purify_512**(+ bg token,sub bg token) | **37.50%** |
 
 结论：ldm-1.3B模型不适合文本反推512分辨率的图片。两阶段学习残差最适合文本反推来生成细小瑕疵。
 
