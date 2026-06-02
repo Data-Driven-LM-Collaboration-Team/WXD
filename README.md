@@ -326,7 +326,7 @@ Fill：迭代填洞（≥3/4 邻居为白则填充，闭合内部孔洞）
 
 如图所示：
 
-#### mask进入vae 后面取得4通道的各个矩阵 使用ostu 计算出最大类间方差，将比例小的视作前景mask,对四通道取得并集得到ostu_mask
+#### mask进入vae 后面取得4通道的各个矩阵 使用ostu 计算出最大类间方差，将比例小的视作前景mask,对四通道取得并集得到ostu_mask,此外使用Trim操作：清零边缘一行/列（消除 VAE padding 伪影）
 
 <img width="1036" height="561" alt="image" src="https://github.com/user-attachments/assets/4b8f56a0-2dc8-4ce7-9015-63e34d1d4d38" />
 
@@ -334,7 +334,7 @@ Fill：迭代填洞（≥3/4 邻居为白则填充，闭合内部孔洞）
 
 <img width="351" height="354" alt="image" src="https://github.com/user-attachments/assets/82c28730-d883-44d3-a945-dad602d74463" />
 
-#### Fill：迭代填洞（≥3/4 邻居为白则填充，闭合内部孔洞），Trim：清零边缘一行/列（消除 VAE padding 伪影）
+#### Fill：迭代填洞（≥3/4 邻居为白则填充，闭合内部孔洞）
 
 <img width="787" height="401" alt="image" src="https://github.com/user-attachments/assets/0c95686a-c95e-4c91-9d90-1001e83f1b8c" />
 
