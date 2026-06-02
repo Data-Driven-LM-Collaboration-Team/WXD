@@ -285,17 +285,7 @@ trainer.fit(model, data)
 
 
 
-
-
-| # | 方法 | Resolution | Extras | Max Steps | Best Test Acc |  
-|:-:|-------------------------------------------|:----------:|----------------------|:---------:|:-------------:|  
-| 0 | Baseline | 256 | plain | 40k | 43.75% |  
-| 1 | Baseline_max pool mask | 256 | max pool mask | 40k | 52.08% |  
-| 2 | v7_stageA_256 ★ | 256 | ostu mask | 40k | 66.67% |  
-| 3 | v7_stageA_512 | 512 | plain | ≥120k | 58.33% |  
-| 4 | v7_stageA_512_svdpos | 512 | SVDiff+PosToken | 40k | 37.50% |  
-| 5 | v7_stageA_512_svdpos_lpips_v2 | 512 | Huber+LPIPS-v2 | 80k | 45.83% |  
-
+zju leaper small 数据集
 
 | 排名 | 方法 |  Acc |
 |:-:|---|:-:|
@@ -315,7 +305,15 @@ trainer.fit(model, data)
 
 结论：ldm-1.3B模型不适合文本反推512分辨率的图片。两阶段学习残差最适合文本反推来生成细小瑕疵。
 
+## 三阶段训练：
 
+<img width="1789" height="810" alt="2bb533cd2b5ea573f653d42977596a76" src="https://github.com/user-attachments/assets/497b4c6a-91f6-4a76-8881-92cfb73bd5fe" />
+
+### stage0: 训练背景token ,使用 ssim分块聚类自动计算子类token数量: bg token + bg sub class token
+### stageA: 训练异常token ,使用 ssim分块聚类 + tbf mask + pix loss学习精确的异常特征(像素级): class token + sub class token + psp token 
+### stageB: 冻结stageA 学习到的条件向量，训练新的异常token学习残差 ，仍然使用 ssim分块聚类 + tbf mask 学习特定区域: class_B token + sub class_B token + psp token 
+
+PS: psp token 为anomaly diffusion自带的空间编码器产生的token.
 
 
 
