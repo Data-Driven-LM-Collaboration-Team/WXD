@@ -315,8 +315,28 @@ zju leaper small 数据集
 
 PS: psp token 为anomaly diffusion自带的空间编码器产生的token.
 
+### TBF mask
+TBF = Trim + Bilinear + Fill
+
+对应 pipeline 的最后三个关键步骤：
+
+Trim：清零边缘一行/列（消除 VAE padding 伪影）
+Bilinear：与双线性下采样的基线 mask 取 max 合并（互补不遗漏）
+Fill：迭代填洞（≥3/4 邻居为白则填充，闭合内部孔洞）
+
+双线性插值遮罩：
+<img width="527" height="486" alt="image" src="https://github.com/user-attachments/assets/a4ca242a-ea5a-4ad7-8144-8350905a8af8" />
+
+
+<img width="1006" height="299" alt="Snipaste_2026-06-02_22-23-25" src="https://github.com/user-attachments/assets/2a3fb361-43f7-483f-8a6c-b91e39027baf" />
 
 
 
+
+
+tbf遮罩：
+<img width="580" height="577" alt="image" src="https://github.com/user-attachments/assets/4a493dd6-1923-4698-aff0-7fab5268d466" />
+
+<img width="990" height="293" alt="image" src="https://github.com/user-attachments/assets/5d9c2570-c0f4-4729-8cf1-e02e6a8d4caa" />
 
 
