@@ -289,10 +289,10 @@ zju leaper small 数据集
 
 | 排名 | 方法 |  Acc |
 |:-:|---|:-:|
-| **1** | **v13_stageB_cfgA3.0_B1.0** | **81.25%** ★ |
-| 2 | v11_anomaly_purify | 72.92% |
-| 3 | **v13_append_token** | **70.83%** |
-| 4 | v7_stageA_256 | 68.75% |
+| **1** | **v13_stageB_cfgA3.0_B1.0**(**+stagaB 各种token**) | **81.25%** ★ |
+| 2 | **v11_anomaly_purify**(**+bg token,sub bg token**) | **72.92%** |
+| 3 | v13_append_token | 70.83% |
+| 4 | v7_stageA_256(**+tbf mask+sub class token**) | 68.75% |
 | 5 | **v11_anomaly_purify_stageB** | **66.67%** |
 | 6 | v7_stageA_256_cfg2 | 62.50% |
 | 7 | v10_cfg (A=2,B=1) | 60.42% |
@@ -330,9 +330,6 @@ Fill：迭代填洞（≥3/4 邻居为白则填充，闭合内部孔洞）
 
 
 <img width="1006" height="299" alt="Snipaste_2026-06-02_22-23-25" src="https://github.com/user-attachments/assets/2a3fb361-43f7-483f-8a6c-b91e39027baf" />
-
-
-
 
 
 ### tbf遮罩：
