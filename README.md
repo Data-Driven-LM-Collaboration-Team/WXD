@@ -313,7 +313,7 @@ zju leaper small 数据集
 ### stageA: 训练异常token ,使用 ssim分块聚类 + tbf mask + pix loss学习精确的异常特征(像素级): class token + sub class token + psp token 
 ### stageB: 冻结stageA 学习到的条件向量，训练新的异常token学习残差 ，仍然使用 ssim分块聚类 + tbf mask 学习特定区域: class_B token + sub class_B token + psp token 
 
-PS: psp token 为anomaly diffusion自带的空间编码器产生的token.
+#### PS: psp token 为anomaly diffusion自带的空间编码器产生的token.
 
 ### TBF mask
 TBF = Trim + Bilinear + Fill
