@@ -293,7 +293,7 @@ zju leaper small 数据集
 | 2 | **v11_anomaly_purify**(**+bg token,sub bg token**) | **72.92%** |
 | 3 | v11_anomaly_purify_append_token(+bg token,sub bg token,此外第二阶段训练时候冻结stageA训练好的向量仅仅训练残差token) | 70.83% |
 | 4 | **v7_stageA_256**(**+tbf mask+sub class token**) | **68.75%** |
-| 5 | v7_stageA_256_cfg2 | 62.50% |
+| 5 | v7_stageA_256_cfg2(+tbf mask+sub class token)  | 62.50% |
 | 6 | cta_lite_adapter（分块降噪并合并） | 52.08% |
 | 7 | baseline_512_lpips_v2(+tbf mask) | 45.83% |
 | 8 | baseline_512 plain | 43.75% |
