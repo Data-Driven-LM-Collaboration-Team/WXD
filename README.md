@@ -324,7 +324,8 @@ Trim：清零边缘一行/列（消除 VAE padding 伪影）
 Bilinear：与双线性下采样的基线 mask 取 max 合并（互补不遗漏）
 Fill：迭代填洞（≥3/4 邻居为白则填充，闭合内部孔洞）
 
-双线性插值遮罩：
+### 双线性插值遮罩：
+
 <img width="527" height="486" alt="image" src="https://github.com/user-attachments/assets/a4ca242a-ea5a-4ad7-8144-8350905a8af8" />
 
 
@@ -334,7 +335,8 @@ Fill：迭代填洞（≥3/4 邻居为白则填充，闭合内部孔洞）
 
 
 
-tbf遮罩：
+### tbf遮罩：
+
 <img width="580" height="577" alt="image" src="https://github.com/user-attachments/assets/4a493dd6-1923-4698-aff0-7fab5268d466" />
 
 <img width="990" height="293" alt="image" src="https://github.com/user-attachments/assets/5d9c2570-c0f4-4729-8cf1-e02e6a8d4caa" />
