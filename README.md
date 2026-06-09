@@ -353,4 +353,32 @@ Fill：迭代填洞（≥3/4 邻居为白则填充，闭合内部孔洞）
 
 <img width="990" height="293" alt="image" src="https://github.com/user-attachments/assets/5d9c2570-c0f4-4729-8cf1-e02e6a8d4caa" />
 
+magic 70.83%  ours 81.25%
+
+magic  pattern 16 明显出现类间平滑
+
+<img width="512" height="512" alt="image" src="https://github.com/user-attachments/assets/fe3f3664-14e6-4ffd-96ff-2f5b4bc8fd08" />
+
+<img width="518" height="260" alt="Image_2026-06-09_20-57-35_2al50czt k5b" src="https://github.com/user-attachments/assets/69be70c0-f8b1-43eb-b4a9-81875f6f7966" />
+
+
+二阶段残差改善可视化：
+
+bottle broken  large
+
+baselines:
+
+<img width="518" height="260" alt="Image_2026-06-09_21-00-30_gmspbzx0 e2v" src="https://github.com/user-attachments/assets/f1282b5e-55af-4268-b21b-f8f5af021518" />
+
+
+ours:
+
+<img width="1030" height="516" alt="Image_2026-06-09_20-59-18_4eub4a44 but" src="https://github.com/user-attachments/assets/ea4a340b-5bf3-475a-b263-1e30f0cbb050" />
+
+
+
+
+
+
+
 
