@@ -379,29 +379,6 @@ magic 70.83%  ours 81.25%
 
 <img src="https://github.com/user-attachments/assets/ea4a340b-5bf3-475a-b263-1e30f0cbb050" alt="Image_2026-06-09_20-59-18_4eub4a44 but" style="height:516px; width:auto;" />
 
-### pattern 16
-#### magic   明显出现类间平滑
-
-<img width="512" height="512" alt="image" src="https://github.com/user-attachments/assets/fe3f3664-14e6-4ffd-96ff-2f5b4bc8fd08" />
-
-#### ours:
-
-<img width="518" height="260" alt="Image_2026-06-09_20-57-35_2al50czt k5b" src="https://github.com/user-attachments/assets/69be70c0-f8b1-43eb-b4a9-81875f6f7966" />
-
-
-### 二阶段残差改善可视化：
-
-#### bottle broken  large
-
-#### baselines:
-
-<img width="518" height="260" alt="Image_2026-06-09_21-00-30_gmspbzx0 e2v" src="https://github.com/user-attachments/assets/f1282b5e-55af-4268-b21b-f8f5af021518" />
-
-
-#### ours:
-
-<img width="1030" height="516" alt="Image_2026-06-09_20-59-18_4eub4a44 but" src="https://github.com/user-attachments/assets/ea4a340b-5bf3-475a-b263-1e30f0cbb050" />
-
 
 
 
