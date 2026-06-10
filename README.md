@@ -379,7 +379,85 @@ magic 70.83%  ours 81.25%
 
 <img src="https://github.com/user-attachments/assets/ea4a340b-5bf3-475a-b263-1e30f0cbb050" alt="Image_2026-06-09_20-59-18_4eub4a44 but" style="height:516px; width:auto;" />
 
+### 📝 中文版初稿：方法论 (Methodology)
 
+**3. 方法论 (Methodology)**
+
+**3.1 总体架构 (Overall Architecture)**
+本文提出了一种基于潜在扩���模型（Latent Diffusion Models, LDM）的工业异常生成新范式。为了解决传统文本反演（Textual Inversion）在拟合高度不规则、多峰态工业异常分布时产生的模式坍塌与边缘混叠问题，我们构建了一个端到端的两阶段生成框架。具体而言，该框架包含四个核心模块：(1) 应对长尾分布的子类谱聚类机制；(2) 保证特征对齐的 TBF 掩码下采样策略；(3) 架构核心：噪声空间梯度提升范式；(4) 解决空间混叠的低时间步像素级损失。
+
+**3.2 应对类内方差的子类谱聚类 (Subclass Spectral Clustering)**
+工业缺陷在同一类别内往往表现出极大的视觉方差（例如背景光照的剧烈波动或异常形态的多样性）。使用单一条件向量强制对整个类别进行编码，会导致模型在潜空间中执行平滑的“加权平均”，从而丧失生成多样性。为此，我们引入了基于 Tile-SSIM 的谱聚类算法。在训练前，算法将每个类别自适应地划分为 $K$ 个子类，并为每个子类分配独立的全局异常 Token 和背景 Token。这种显式的语义路由机制打破了长尾分布下的条件表达瓶颈，为后续的残差学习提供了纯粹的初始化状态。
+
+**3.3 潜空间对齐的掩码处理 (Latent-Aligned Mask Processing via TBF)**
+在计算掩码损失时，直接对高分辨率像素掩码进行双线性插值或最大池化，会导致微小异常（如裂纹、划痕）在潜空间分辨率下严重萎缩或产生方块化伪影。为了实现精确的空间特征对齐，我们提出 TBF (Trim, Bilinear, Fill) 掩码处理管道。我们创新性地利用预训练 VAE 编码器的多通道响应机制，将二值掩码映射为包含物理投影先验的 4 通道特征，并通过逐通道 Otsu 自适应阈值化与形态学闭合（Fill holes）完成合并。TBF 确保了在 $32 \times 32$ 潜空间中计算的重构误差能够完美贴合真实物理边界。
+
+**3.4 噪声空间梯度提升 (Noise-Space Gradient Boosting)**
+真实工业异常的概率密度函数表现出极强的不规则多峰尖峰特性。为了高保真地拟合这一分布，我们借鉴经典机器学习中的梯度提升思想，在扩散模型的噪声预测空间中提出两阶段残差学习架构。
+在训练阶段，我们冻结 UNet 主干，并设立两条独立的条件注入路径：Stage-A（冻结的平滑核估计）和 Stage-B（可训练的残差补偿）。给定输入 $x_t$ 与时间步 $t$，模型预测的噪声公式化为：
+
+
+$$\hat{\boldsymbol{\varepsilon}} = \hat{\boldsymbol{\varepsilon}}_A(x_t, t, c_A) + \hat{\boldsymbol{\varepsilon}}_B(x_t, t, c_B)$$
+
+
+其中 $\hat{\boldsymbol{\varepsilon}}_A$ 停止梯度回传，Stage-B 路径的最优解被严格约束为拟合目标残差：
+
+
+$$\hat{\boldsymbol{\varepsilon}}_B^* = \mathbb{E}[\boldsymbol{\varepsilon} - \hat{\boldsymbol{\varepsilon}}_A \mid x_t, c_B]$$
+
+
+在推理阶段，为了防止残差特征被过度放大而产生彩虹噪声（Rainbow artifacts），我们采用非对称无分类器引导（Asymmetric CFG），为主分布预测 $\hat{\boldsymbol{\varepsilon}}_A$ 施加高引导尺度（$w_A=3$），而对残差预测 $\hat{\boldsymbol{\varepsilon}}_B$ 保持原尺度（$w_B=1$）。
+
+**3.5 低时间步像素级掩码损失 (Low-Timestep Pixel-Space Mask Loss)**
+尽管 TBF 策略缓解了掩码的粗粒度错位，VAE 固有的 $8\times$ 下采样依然会在潜空间不可避免地引入高频混叠（Spatial Aliasing），导致生成的异常边界模糊。为此，我们提出了一种动态空间优化的像素级损失 $\mathcal{L}_{\text{pix}}$。
+我们观察到，在高噪声阶段（$t \to T$），推导的 $\hat{x}_0$ 缺乏有意义的结构信息；而在低噪声阶段（$t \leq 200$），$\hat{x}_0$ 已初步成型。因此，仅在 $t \leq 200$ 时，我们将预测的 $\hat{x}_0$ 穿透 VAE 解码器映射回像素空间，并仅在异常掩码区域 $\mathbf{m}_{\text{pix}}$ 内计算 $\ell_1$ 损失：
+
+
+$$\mathcal{L}_{\text{pix}} = \mathbb{E}_{t \leq 200} \left[ \frac{\| \mathbf{m}_{\text{pix}} \odot (\hat{x}_0(\hat{\boldsymbol{\varepsilon}}) - x_0) \|_1}{\|\mathbf{m}_{\text{pix}}\|_1} \right]$$
+
+
+该损失函数的梯度能够通过冻结的 VAE 解码器和 UNet 主干，精准反向传播至 Stage-B 的文本嵌入参数中，引导模型生成极其锐利且符合物理几何的缺陷边界。
+
+---
+
+### 🎓 英文版学术稿：Methodology (可直接用于 AAAI 投稿)
+
+**3. Methodology**
+
+**3.1 Overall Architecture**
+This paper proposes a novel paradigm for industrial anomaly generation based on Latent Diffusion Models (LDMs). To address the issues of mode collapse and boundary aliasing caused by conventional textual inversion when fitting highly irregular, multi-modal industrial anomaly distributions, we construct an end-to-end two-stage generative framework. Specifically, the framework consists of four core modules: (1) a Subclass Spectral Clustering mechanism for modeling intra-class variance; (2) a Latent-Aligned Mask Processing (TBF) strategy to ensure spatial fidelity; (3) the core architecture: Noise-Space Gradient Boosting; and (4) a Low-Timestep Pixel-Space Mask Loss to mitigate spatial aliasing.
+
+**3.2 Subclass Spectral Clustering for Intra-class Variance**
+Industrial defects typically exhibit significant visual variance within the same category (e.g., severe fluctuations in background illumination or diverse anomaly morphologies). Forcing a single condition vector to encode an entire category causes the model to perform a smoothed "weighted average" in the latent space, thereby sacrificing generative diversity. To alleviate this, we introduce a Tile-SSIM-based spectral clustering algorithm. Prior to training, this algorithm adaptively partitions each category into $K$ subclasses and assigns independent global anomaly tokens and background tokens to each subclass. This explicit semantic routing mechanism breaks the conditional representation bottleneck under long-tailed distributions, providing a purified initialization state for subsequent residual learning.
+
+**3.3 Latent-Aligned Mask Processing via TBF**
+When computing the mask loss, directly applying bilinear interpolation or max-pooling to high-resolution pixel masks causes subtle anomalies (e.g., micro-cracks, scratches) to severely shrink or produce blocky artifacts at the latent resolution. To achieve precise spatial feature alignment, we propose the Trim, Bilinear, Fill (TBF) mask processing pipeline. We innovatively leverage the multi-channel response mechanism of the pre-trained VAE encoder to map binary masks into 4-channel features infused with physical projection priors. This is followed by per-channel Otsu adaptive thresholding and morphological hole-filling. The TBF pipeline ensures that the reconstruction error computed in the $32 \times 32$ latent space perfectly adheres to the authentic physical boundaries of the defects.
+
+**3.4 Noise-Space Gradient Boosting**
+The probability density functions of real-world industrial anomalies exhibit highly irregular, multi-modal peak characteristics. To fit this distribution with high fidelity, we draw inspiration from the concept of Gradient Boosting in classical machine learning and propose a two-stage residual learning architecture within the noise prediction space of the diffusion model.
+During the training phase, we freeze the UNet backbone and establish two independent conditioning paths: Stage-A (a frozen, smoothed kernel estimator) and Stage-B (a trainable residual compensator). Given the input $x_t$ and timestep $t$, the predicted noise of the model is formulated as:
+
+
+$$\hat{\boldsymbol{\varepsilon}} = \hat{\boldsymbol{\varepsilon}}_A(x_t, t, c_A) + \hat{\boldsymbol{\varepsilon}}_B(x_t, t, c_B)$$
+
+
+where the gradient backpropagation for $\hat{\boldsymbol{\varepsilon}}_A$ is stopped. The optimal solution for the Stage-B path is strictly constrained to fit the target residual:
+
+
+$$\hat{\boldsymbol{\varepsilon}}_B^* = \mathbb{E}[\boldsymbol{\varepsilon} - \hat{\boldsymbol{\varepsilon}}_A \mid x_t, c_B]$$
+
+
+During the inference phase, to prevent the residual features from being over-amplified—which could generate rainbow artifacts—we employ an Asymmetric Classifier-Free Guidance (CFG). Specifically, we apply a high guidance scale ($w_A=3$) to the main distribution prediction $\hat{\boldsymbol{\varepsilon}}_A$, while maintaining the original scale ($w_B=1$) for the residual prediction $\hat{\boldsymbol{\varepsilon}}_B$.
+
+**3.5 Low-Timestep Pixel-Space Mask Loss**
+Although the TBF strategy alleviates coarse-grained mask misalignment, the inherent $8\times$ downsampling of the VAE inevitably introduces spatial aliasing in the latent space, resulting in blurred anomaly boundaries. To address this, we propose $\mathcal{L}_{\text{pix}}$, a pixel-level loss governed by dynamic spatial optimization.
+We observe that in the high-noise phase ($t \to T$), the derived $\hat{x}_0$ lacks meaningful structural information; conversely, in the low-noise phase ($t \leq 200$), $\hat{x}_0$ begins to physically materialize. Therefore, strictly when $t \leq 200$, we decode the predicted $\hat{x}_0$ back to the pixel space using the VAE decoder and compute the $\ell_1$ error exclusively within the pixel-space anomaly mask $\mathbf{m}_{\text{pix}}$:
+
+
+$$\mathcal{L}_{\text{pix}} = \mathbb{E}_{t \leq 200} \left[ \frac{\| \mathbf{m}_{\text{pix}} \odot (\hat{x}_0(\hat{\boldsymbol{\varepsilon}}) - x_0) \|_1}{\|\mathbf{m}_{\text{pix}}\|_1} \right]$$
+
+
+The gradients of this loss function perform a gradient-through operation bypassing the frozen VAE decoder and UNet backbone, propagating precisely to the text embedding parameters of Stage-B. This explicitly guides the model to synthesize extraordinarily sharp defect boundaries that conform to physical geometries.
 
 
 
