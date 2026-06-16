@@ -382,7 +382,7 @@ magic 70.83%  ours 81.25%
 ### 下游分类任务评估    fabric 细小瑕疵group
 | Category | DualAnoDiff (official code) | MAGIC | **Ours‡** |
 | :--- | ---: | ---: | ---: |
-| **fabric (pattern16–19)** | ⏳   | 62.50 | **81.25** |
+| **fabric (pattern16–19)** | 66.67   | 62.50 | **81.25** |
 
 ### **生成质量对照**（同 pooled 协议，供参考）：
 
@@ -391,8 +391,7 @@ magic 70.83%  ours 81.25%
 | MAGIC pooled | 87.81 | 0.367 | 62.50 |
 | **Ours v13 Stage-B** | **85.97** | 0.316 | **81.25** |
 | SeaS pooled | 103.85 | **0.413** | 52.08 |
-| DualAnoDiff | ⏳   | ⏳   | ⏳   |
-
+| DualAnoDiff | 127.07    | 0.395 | 66.67   |
 
 
 ### 下游分类任务评估 Mvtec AD 公开数据集 
