@@ -379,12 +379,23 @@ magic 70.83%  ours 81.25%
 
 <img src="https://github.com/user-attachments/assets/ea4a340b-5bf3-475a-b263-1e30f0cbb050" alt="Image_2026-06-09_20-59-18_4eub4a44 but" style="height:516px; width:auto;" />
 
-### 下游分类任务评估 fabric 细小瑕疵group
+### 下游分类任务评估    fabric 细小瑕疵group
 | Category | DualAnoDiff (official code) | MAGIC | **Ours‡** |
 | :--- | ---: | ---: | ---: |
 | **fabric (pattern16–19)** | ⏳   | 62.50 | **81.25** |
 
-### 下游分类任务评估
+### **生成质量对照**（同 pooled 协议，供参考）：
+
+| 方法  | KID×1000 ↓ | IC-LPIPS ↑ | 分类 Acc ↑ |
+| :--- | ---: | ---: | ---: |
+| MAGIC pooled | 87.81 | 0.367 | 62.50 |
+| **Ours v13 Stage-B** | **85.97** | 0.316 | **81.25** |
+| SeaS pooled | 103.85 | **0.413** | 52.08 |
+| DualAnoDiff | ⏳   | ⏳   | ⏳   |
+
+
+
+### 下游分类任务评估 Mvtec AD 公开数据集 
 | Category | DualAnoDiff (official code) | DualAnoDiff† (paper values) | MAGIC | **Ours‡ (GPU1 batch)** |
 | :--- | ---: | ---: | ---: | ---: |
 | bottle | 72.09 | **79.07** | <u>76.74</u> | **79.07** |
