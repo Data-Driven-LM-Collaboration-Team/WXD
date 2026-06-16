@@ -379,7 +379,12 @@ magic 70.83%  ours 81.25%
 
 <img src="https://github.com/user-attachments/assets/ea4a340b-5bf3-475a-b263-1e30f0cbb050" alt="Image_2026-06-09_20-59-18_4eub4a44 but" style="height:516px; width:auto;" />
 
+### 下游分类任务评估 fabric 细小瑕疵group
+| Category | DualAnoDiff (official code) | MAGIC | **Ours‡** |
+| :--- | ---: | ---: | ---: |
+| **fabric (pattern16–19)** | ⏳   | 62.50 | **81.25** |
 
+### 下游分类任务评估
 | Category | DualAnoDiff (official code) | DualAnoDiff† (paper values) | MAGIC | **Ours‡ (GPU1 batch)** |
 | :--- | ---: | ---: | ---: | ---: |
 | bottle | 72.09 | **79.07** | <u>76.74</u> | **79.07** |
@@ -397,6 +402,7 @@ magic 70.83%  ours 81.25%
 | wood | 71.43 | **85.71** | <u>73.81</u> | — |
 | zipper | <u>73.17</u> | <u>75.61</u> | **78.05** | — |
 | **Average** | 68.50 | **79.67** | <u>78.06</u> | **76.00**† |
+
 
 
 ### 📝 中文版初稿：方法论 (Methodology)
