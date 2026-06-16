@@ -379,6 +379,26 @@ magic 70.83%  ours 81.25%
 
 <img src="https://github.com/user-attachments/assets/ea4a340b-5bf3-475a-b263-1e30f0cbb050" alt="Image_2026-06-09_20-59-18_4eub4a44 but" style="height:516px; width:auto;" />
 
+
+| Category | DualAnoDiff (official code) | DualAnoDiff† (paper values) | MAGIC | **Ours‡ (GPU1 batch)** |
+| :--- | ---: | ---: | ---: | ---: |
+| bottle | 72.09 | **79.07** | <u>76.74</u> | **79.07** |
+| cable | 56.25 | **78.12** | <u>68.75</u> | 65.62 |
+| capsule | 48.00 | **70.67** | 58.67 | <u>68.00</u> |
+| carpet | <u>70.97</u> | **79.03** | 62.90 | 66.13 |
+| grid | 60.00 | **80.00** | 60.00 | **80.00** |
+| hazelnut | 85.42 | <u>89.58</u> | **97.92** | <u>89.58</u> |
+| leather | 84.13 | **90.48** | <u>85.71</u> | 79.37 |
+| metal_nut | 76.56 | <u>89.06</u> | **90.62** | — |
+| pill | 33.33 | <u>56.25</u> | **67.71** | — |
+| screw | 58.02 | 70.37 | **82.72** | <u>80.25</u> |
+| tile | <u>98.25</u> | **100.00** | **100.00** | — |
+| transistor | **71.43** | **71.43** | **89.29** | — |
+| wood | 71.43 | **85.71** | <u>73.81</u> | — |
+| zipper | <u>73.17</u> | <u>75.61</u> | **78.05** | — |
+| **Average** | 68.50 | **79.67** | <u>78.06</u> | **76.00**† |
+
+
 ### 📝 中文版初稿：方法论 (Methodology)
 
 **3. 方法论 (Methodology)**
