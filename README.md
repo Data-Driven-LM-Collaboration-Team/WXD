@@ -413,6 +413,50 @@ magic 70.83%  ours 81.25%
 | zipper | 73.17 | <u>75.61</u> | **78.05** | — |
 | **Average** | 68.50 | **79.67** | 78.06 | <u>79.12</u>† |
 
+### 4.6 微缺陷（MAS）下游定位性能评估（论文核心）
+**MAS 子集均值（Pixel；基线统一协议重算）：**
+
+| 子集 | 指标 | AnomalyDiff | AnoGen | DualAnoDiff | SeaS | MAGIC | **Ours** |
+| --- | --- | :-: | :-: | :-: | :-: | :-: | :-: |
+| **VisA-MAS (7)** | AUROC / AP / F1 / PRO | 94.1/29.1/31.5/80.5 | 96.6/31.4/36.2/85.7 | 96.4/37.9/41.4/83.8 | 97.9/**62.0**/**61.4**/86.1 | 97.9/55.6/55.7/**90.9** | **99.3**/25.1/29.7/85.4‡ |
+| **MVTec-MAS (11)** | AUROC / AP / F1 / PRO | 98.0/67.8/65.1/91.3 | 97.4/66.2/63.1/90.0 | 97.4/73.1/69.7/90.1 | 98.1/74.5/70.3/94.1 | **99.0**/**78.4**/**74.3**/**96.0** | 97.7/69.4/66.7/91.5 |
+
+- **VisA-MAS (7)**：`capsules`，`pcb1`，`pcb2`，`pcb3`，`pcb4`，`macaroni1`，`macaroni2`
+- **MVTec-MAS (11)**：`capsule`，`carpet`，`grid`，`hazelnut`，`leather`，`pill`，`screw`，`tile`，`toothbrush`，`cable`，`wood`（dominant-defect 口径；LAS = bottle / metal\_nut / transistor / zipper）
+
+
+
+**表 4.4a — T1 生成质量：MAS（Micro-Anomaly Subset，主战场）**
+
+| 方法 | MVTec-MAS KID↓ | MVTec-MAS IC-L↑ | VisA-MAS KID↓ | VisA-MAS IC-L↑ |
+| --- | :-: | :-: | :-: | :-: |
+| AnomalyDiffusion (AAAI'23) | †104.01 | 0.30 | 110.76 | 0.30 |
+| AnoGen (ECCV'24) | †105.39 | 0.31 | 106.41 | 0.30 |
+| DualAnoDiff (CVPR'25) | †96.82 | **0.36** | 152.64 | **0.43** |
+| SeaS (ICCV'25) | †126.59 | 0.35 | 97.00 | 0.23 |
+| MAGIC (CVPR'26) | †待计算 | 0.30 | **79.81** | 0.32 |
+| **BOOST-AD (Ours)** | **19.42**§ | **~0.33**§ | — | — |
+
+MVTEC MAS类别即是： cable ,capsule, grid ,hazelnut , pill ,screw,toothbrush.
+### 正式 MAS 判据（mask 几何）
+
+对每个 `(class, anomaly)` 子组：
+
+$$\text{MAS} \iff \text{median(面积占比)} \le 1\% \;\textbf{OR}\;\; \text{median(thinness)} \ge 0.12$$
+
+
+### 4.7 下游分类（T5）
+**统一协议分类准确率（ResNet-34，源自 MAGIC Table 4）：**
+
+
+| 方法 | MVTec | VisA | MVTec 3D | **Avg** |
+| --- | :-: | :-: | :-: | :-: |
+| AnomalyDiffusion | 64.90 | 42.86 | 46.07 | 51.28 |
+| AnoGen | 56.92 | 46.75 | 42.68 | 48.78 |
+| DualAnoDiff | 68.50 | 52.14 | 37.41 | 52.82 |
+| SeaS | 52.73 | 36.55 | 39.01 | 42.76 |
+| MAGIC | **78.06** | **68.51** | **53.33** | **66.63** |
+| **BOOST-AD (Ours)** | **78.78** | **77.2**‡ | — | **78.78** |
 
 
 ### 📝 中文版初稿：
