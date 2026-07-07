@@ -458,6 +458,12 @@ $$\text{MAS} \iff \text{median(面积占比)} \le 1\% \;\textbf{OR}\;\; \text{me
 | MAGIC | **78.06** | **68.51** | **53.33** | **66.63** |
 | **BOOST-AD (Ours)** | **78.78** | **77.2**‡ | — | **78.78** |
 
+### mask localization重生成 改进下游定位性能
+
+<img width="1709" height="936" alt="Image_2026-07-07_19-05-26_guinqtls pme" src="https://github.com/user-attachments/assets/5359f2d2-e162-4c02-8089-17450fbc5ffe" />
+
+
+
 
 ### 📝 中文版初稿：
 # BOOST-AD: Few-Shot Industrial Anomaly Generation via Noise-Space Gradient Boosting and Latent-Aligned Mask Optimization
