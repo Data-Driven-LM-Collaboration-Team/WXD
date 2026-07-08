@@ -462,6 +462,14 @@ $$\text{MAS} \iff \text{median(面积占比)} \le 1\% \;\textbf{OR}\;\; \text{me
 
 <img width="1709" height="936" alt="Image_2026-07-07_19-05-26_guinqtls pme" src="https://github.com/user-attachments/assets/5359f2d2-e162-4c02-8089-17450fbc5ffe" />
 
+| 方法 | 简称 | AUROC-P ↑ | AP-P ↑ | F1-P ↑ | PRO-P ↑ |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| AnomalyDiffusion | **LDM** | 95.6 | 11.8 | 21.6 | 83.8 |
+| SeaS | **SeaS** | 96.3 | 48.3 | 49.8 | 90.5 |
+| DualAnoDiff | **DualAnoDiff** | 98.2 | 50.4 | 51.2 | 91.5 |
+| MAGIC | **MAGIC** | **99.2** | 51.4 | 52.1 | **94.9** |
+| ResBoost（Ours，raw） | **ResBoost†** | 94.5 | 35.7 | 41.5 | 85.8 |
+| **ResBoost + mask_loc v3** | **ResBoost (Ours)** | 98.5 | **56.1** | **54.9** | **94.9** |
 
 
 
