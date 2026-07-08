@@ -492,7 +492,9 @@ $$\text{MAS} \iff \text{median(面积占比)} \le 1\% \;\textbf{OR}\;\; \text{me
 1. **潜空间的空间混叠（Spatial Aliasing in Latent Space）**：现有高保真引导方法通常通过双线性插值将高分辨率掩码下采样至潜空间。在 VAE 强大的 $8\times$ 压缩下，微小瑕疵的掩码面积急剧萎缩甚至完全蒸发，模型在隐空间彻底丢失指导坐标，生成的微小瑕疵边界模糊甚至无法生成。
 2. **高频纹理的残差坍塌（Residual Collapse of High-Frequency Textures）**：微小瑕疵通常表现为高频、非连续的尖峰纹理。致力于多样性的方法在用条件嵌入拟合异常分布时，为追求流形宽泛性极易陷入平滑的局部最优，抹除微小瑕疵特有的锐利边界与物理质感，使细节呈现模糊的"水渍状"，微观真实感大打折扣。
 
+<img width="1995" height="930" alt="Image_2026-07-08_23-54-53_dqovtpqk kdg" src="https://github.com/user-attachments/assets/2d712954-0aa8-40f0-a793-ad784ea0d518" />
 
+图1 boostad生成的细小瑕疵更加明显，有助于下游分类和定位
 
 <img width="1988" height="1201" alt="image" src="https://github.com/user-attachments/assets/0ed9391f-8e98-446c-8341-85a52e5ec3c8" />
 
