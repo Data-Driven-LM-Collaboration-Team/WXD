@@ -845,31 +845,6 @@ $$\hat x_0=\frac{x_t-\sqrt{1-\bar\alpha_t}\hat\varepsilon}{\sqrt{\bar\alpha_t}},
 | 表 4.6 | VisA 微缺陷头对头（per-class + 均值） | ✅ 基线已填（MAGIC Table 17）；Ours 回填中 | §4.6 |
 | 表 4.7 | 下游分类（Ours + 基线全景） | ✅ Ours 实测 + 基线已填 | §4.7（MAGIC Table 4） |
 
-**定性蒙太奇拼装（示例命令，使用真实生成结果，不虚构）：**
-
-```bash
-# 以 capsules 某 combo 为例，将 ori|mask|image 三联并排成对比图
-python - <<'PY'
-import os, glob
-from PIL import Image
-root="generated_dataset/capsules/bubble+discolor_v13_stageB_residual_boost_visa_capsules_cama_synth_cfgA3.0_B1.0"
-idxs=[0,1,2,3]
-cols=["ori","mask","image"]
-tiles=[]
-for i in idxs:
-    row=[Image.open(os.path.join(root,c,f"{i}.jpg")).convert("RGB").resize((256,256)) for c in cols]
-    w=sum(t.width for t in row); h=row[0].height
-    strip=Image.new("RGB",(w,h)); x=0
-    for t in row: strip.paste(t,(x,0)); x+=t.width
-    tiles.append(strip)
-W=tiles[0].width; H=sum(t.height for t in tiles)
-canvas=Image.new("RGB",(W,H)); y=0
-for t in tiles: canvas.paste(t,(0,y)); y+=t.height
-canvas.save("docs/paper/figures/fig6_qualitative_capsules.png")
-print("saved docs/paper/figures/fig6_qualitative_capsules.png")
-PY
-```
-
 ---
 
 ## 参考文献 (References)
@@ -896,6 +871,35 @@ PY
 > 关联文档：`docs/paper/EXPERIMENT_ROADMAP.md`、`docs/paper/experiments/PROGRESS_20260623.md`、`docs/paper/STRATEGY_ldm_vs_magic_resboost.md`、`logs/mvtec_eval_full_summary.md`。
 
 
+M2M: Motion2Motion: Learning Human Pose Refining in Videos without Ground
+Truth Label
 
+算法流程：
 
+<img width="503" height="322" alt="Snipaste_2026-10-12_11-22-08" src="https://github.com/user-attachments/assets/b171b21a-b756-4817-a036-72ca8dbb9481" />
+
+大致模块：
+
+<img width="1058" height="353" alt="image" src="https://github.com/user-attachments/assets/89e43c82-a7d2-4d72-806a-db2a81071f8a" />
+
+毕业论文大纲和开题：
+
+面向少样本工业细小缺陷的可控异常生成方法研究
+
+本论文拟以 CRISP 少样本工业异常生成为主体，研究背景结构保持、细小缺陷表达及其分类与定位效用。前期参与的 M2M（Motion2Motion）姿态精修工作用于说明结构先验与视觉保真的研究基础
+
+第一章是绪论，第二章是文生图理论介绍和测评实验指标介绍
+
+| 核心工作 | 主要问题 | 预期论证对象 |
+| :--- | :--- | :--- |
+| **第三章：分类增强** | 真实细小缺陷稀缺，生成结果容易丢失局部类别线索或引入背景偏移。 | 以 CRISP 生成数据训练下游分类器，验证判别效用及生成质量。 |
+| **第四章：定位增强** | 生成器的实际修改区域与输入意图、定位标签可能不一致。 | 研究支撑对齐或像素反馈方法，验证精确定位能力及分类代价。 |
+| **第五章：系统实现** | 研究代码与模型难以直接供使用者完成数据准备、生成和结果查看。 | 将前两章能力封装为可操作系统，并完成流程与性能测试。 |
+
+第一章 绪论
+第二章 相关理论与关键技术
+第三章 面向细小缺陷分类的上下文感知异常生成方法
+第四章 面向精确定位的异常生成支撑对齐方法
+第五章 工业缺陷样本生成与辅助检测系统设计与实现
+第六章 总结与展望
 
