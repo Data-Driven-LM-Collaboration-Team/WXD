@@ -46,7 +46,7 @@ zju lfp 消融
 
 ---
 
-## 2. MVTec 四对象宏平均（5 配置，5 seed 均值±SD）
+## 2. MVTec 四对象宏平均（5 配置，5 seed 均值±SD） BPRC模块消融
 
 | 配置 | 分类 Acc % | AP-P % | F1-P % | PRO-P % | KID↓ | IC-LPIPS↑ |
 |---|---:|---:|---:|---:|---:|---:|
