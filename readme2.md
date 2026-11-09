@@ -50,7 +50,7 @@ zju lfp 消融
 <img width="256" height="256" alt="3" src="https://github.com/user-attachments/assets/407fd03d-c630-42f3-a0ee-bba3be9c15e6" />
 
 
-<img width="512" height="512" alt="3" src="https://github.com/user-attachments/assets/98158426-2f47-4ca9-9389-a1e0d5793881" />
+<img width="256" height="256" alt="3" src="https://github.com/user-attachments/assets/98158426-2f47-4ca9-9389-a1e0d5793881" />
 
 
 ### 仅仅注入异常token，生成图像并提升定位性能
