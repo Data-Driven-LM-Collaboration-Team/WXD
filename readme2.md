@@ -42,9 +42,23 @@ zju lfp 消融
 | **flat16 routed（2026-11）** |  **75.00** | **45.83** | **−29.17** |
 | 模型效应（R1 − v13）         |     −22.92 |     +5.00 |          — |
 | 模型效应（flat16 − v13）     |     −10.42 |    −12.50 |          — |
-**这是一次干净的交互效应**：在充分训练stage0，并且正确对背景进行聚类后正确训练的模型，使用LFP "生成强细窄缺陷"的效果会很好；
+**这是一次干净的交互效应**：充分训练stage0，然后对背景进行聚类并训练的模型stageA，使用LFP "生成强细窄缺陷"的效果会很好；
 而在生成的时候，错误路由子类token的模型不管用哪种投影都停在 60 附近。
-# G4-X 实验结
+
+### CRISP zju 定位性能低下
+
+<img width="256" height="256" alt="3" src="https://github.com/user-attachments/assets/407fd03d-c630-42f3-a0ee-bba3be9c15e6" />
+
+
+<img width="512" height="512" alt="3" src="https://github.com/user-attachments/assets/98158426-2f47-4ca9-9389-a1e0d5793881" />
+
+
+### 仅仅注入异常token，生成图像并提升定位性能
+
+<img width="768" height="256" alt="8_triple" src="https://github.com/user-attachments/assets/34ad7ea4-41f2-4ef8-9be6-5e667ea23f81" />
+
+
+# G4-X 实验结果
 
 2026-11-02 汇总。数据源：主实验 2026-10-31 快照、ZJU 500-mask 探索（45/45）、40 轮复评（15/15）、模型×投影 2×2。
 
